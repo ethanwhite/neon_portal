@@ -27,11 +27,11 @@ class SpListDocumentForm(forms.ModelForm):
         try:
             content_type = file.content_type
             print content_type
-            if content_type in self.content_types:
-                if file._size > self.max_upload_size:
-                    raise forms.ValidationError(_('Please keep filesize under %s. Current filesize %s') % (filesizeformat(self.max_upload_size), filesizeformat(file._size)))
-            else:
-                raise forms.ValidationError(_('Filetype not supported. Only the following files are allowed: %s' % ','.join(self.content_types)))
+            #if content_type in self.content_types:
+            if file._size > self.max_upload_size:
+                raise forms.ValidationError(_('Please keep filesize under %s. Current filesize %s') % (filesizeformat(self.max_upload_size), filesizeformat(file._size)))
+            #else:
+                #raise forms.ValidationError(_('Filetype not supported. Only the following files are allowed: %s' % ','.join(self.content_types)))
         except AttributeError:
             pass        
             
